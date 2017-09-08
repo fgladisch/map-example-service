@@ -1,0 +1,21 @@
+{
+  "name": "boardmap-backend",
+  "version": "0.1.0",
+  "description": "The backend of BoardMap.",
+  "private": true,
+  "author": "Felix Gladisch <felix@felixgladisch.de>",
+  "license": "GPL-3.0",
+  "scripts": {
+    "start": "node app",
+    "watch": "nodemon ./app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "4.15.4",
+    "pg": "7.3.0",
+    "sequelize": "4.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "1.12.0"
+  }
+}
