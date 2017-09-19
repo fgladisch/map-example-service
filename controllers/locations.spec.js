@@ -5,7 +5,7 @@ const { expect } = require('chai')
 const { Location, sequelize } = require('../models')
 
 const resetDatabase = () => sequelize.sync({ force: true })
-const next = (err) => { console.error(err) }
+const next = (err) => { throw err }
 
 describe('locations controller', () => {
 
@@ -29,11 +29,7 @@ describe('locations controller', () => {
 
   it('should create a location', async () => {
 
-    const request = httpMocks.createRequest({
-      method: 'POST',
-      url: '/locations',
-      body: testLocation
-    })
+    const request = httpMocks.createRequest({ body: testLocation })
 
     await create(request, response, next)
 
@@ -51,9 +47,7 @@ describe('locations controller', () => {
     const existingLocation = await Location.create(testLocation)
 
     const request = httpMocks.createRequest({
-      method: 'PUT',
-      url: `/locations/${existingLocation.id}`,
-      body: {...testLocation, name: updatedName},
+      body: { ...testLocation, name: updatedName },
       params: { id: existingLocation.id }
     })
 
@@ -68,11 +62,7 @@ describe('locations controller', () => {
 
     const existingLocation = await Location.create(testLocation)
 
-    const request = httpMocks.createRequest({
-      method: 'DELETE',
-      url: `/locations/${existingLocation.id}`,
-      params: { id: existingLocation.id }
-    })
+    const request = httpMocks.createRequest({ params: { id: existingLocation.id } })
 
     await destroy(request, response, next)
 
@@ -85,11 +75,7 @@ describe('locations controller', () => {
 
     const existingLocation = await Location.create(testLocation)
 
-    const request = httpMocks.createRequest({
-      method: 'GET',
-      url: `/locations/${existingLocation.id}`,
-      params: { id: existingLocation.id }
-    })
+    const request = httpMocks.createRequest({ params: { id: existingLocation.id } })
 
     await findOne(request, response, next)
 
@@ -102,10 +88,7 @@ describe('locations controller', () => {
 
     const existingLocation = await Location.create(testLocation)
 
-    const request = httpMocks.createRequest({
-      method: 'GET',
-      url: `/locations`
-    })
+    const request = httpMocks.createRequest()
 
     await findAll(request, response, next)
 

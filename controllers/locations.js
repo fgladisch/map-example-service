@@ -15,7 +15,7 @@ const create = async (req, res, next) => {
     res.send(location.toJSON())
 
   } catch (err) {
-    next(err.message)
+    next(err)
   }
 
 }
@@ -39,7 +39,7 @@ const update = async (req, res, next) => {
     res.send(location.toJSON())
 
   } catch (err) {
-    next(err.message)
+    next(err)
   }
 
 }
@@ -55,7 +55,7 @@ const destroy = async (req, res, next) => {
     res.status(204).end()
 
   } catch (err) {
-    next(err.message)
+    next(err)
   }
 
 }
@@ -75,7 +75,7 @@ const findOne = async (req, res, next) => {
     res.send(location.toJSON())
 
   } catch (err) {
-    next(err.message)
+    next(err)
   }
 
 }
@@ -89,7 +89,7 @@ const findAll = async (req, res, next) => {
     res.send(locations)
 
   } catch (err) {
-    next(err.message)
+    next(err)
   }
 
 }
