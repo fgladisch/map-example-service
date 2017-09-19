@@ -7,15 +7,19 @@
   "license": "GPL-3.0",
   "scripts": {
     "start": "node app",
+    "test": "mocha **/*.spec.js",
     "watch": "nodemon ./app.js"
   },
   "dependencies": {
-    "body-parser": "^1.17.2",
+    "body-parser": "1.17.2",
     "express": "4.15.4",
     "pg": "7.3.0",
     "sequelize": "4.8.2"
   },
   "devDependencies": {
+    "chai": "4.1.2",
+    "mocha": "3.5.3",
+    "node-mocks-http": "1.6.4",
     "nodemon": "1.12.0"
   }
 }
