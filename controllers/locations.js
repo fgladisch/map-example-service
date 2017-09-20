@@ -3,8 +3,9 @@ const express = require('express')
 const router = express.Router()
 
 const { Location } = require('../models')
+const ServerError = require('../util/server-error')
 
-const create = async (req, res, next) => {
+async function create(req, res, next) {
 
   try {
 
@@ -20,7 +21,7 @@ const create = async (req, res, next) => {
 
 }
 
-const update = async (req, res, next) => {
+async function update(req, res, next) {
 
   try {
 
@@ -30,7 +31,7 @@ const update = async (req, res, next) => {
     let location = await Location.findById(id)
 
     if (!location) {
-      throw new Error('Location not found.')
+      throw new ServerError(404, 'Location not found.')
     }
 
     location = Object.assign(location, { name, latitude, longitude })
@@ -44,7 +45,7 @@ const update = async (req, res, next) => {
 
 }
 
-const destroy = async (req, res, next) => {
+async function destroy(req, res, next) {
 
   try {
 
@@ -60,7 +61,7 @@ const destroy = async (req, res, next) => {
 
 }
 
-const findOne = async (req, res, next) => {
+async function findOne(req, res, next) {
 
   try {
 
@@ -69,7 +70,7 @@ const findOne = async (req, res, next) => {
     const location = await Location.findById(id)
 
     if (!location) {
-      throw new Error('Location not found.')
+      throw new ServerError(404, 'Location not found.')
     }
 
     res.send(location.toJSON())
@@ -80,7 +81,7 @@ const findOne = async (req, res, next) => {
 
 }
 
-const findAll = async (req, res, next) => {
+async function findAll(req, res, next) {
 
   try {
 
