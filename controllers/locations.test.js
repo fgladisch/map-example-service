@@ -5,7 +5,9 @@ const { expect } = require('chai')
 const { Location, sequelize } = require('../models')
 
 const resetDatabase = () => sequelize.sync({ force: true })
-const next = (err) => { throw err }
+
+// TODO: Spy
+const next = (err) => null
 
 describe('locations controller', () => {
 
@@ -94,7 +96,7 @@ describe('locations controller', () => {
 
     const locations = response._getData()
 
-    expect(locations.length).to.equal(1)
+    expect(locations).to.have.lengthOf(1)
   })
 
 })
