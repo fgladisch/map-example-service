@@ -5,10 +5,11 @@ const router = express.Router()
 const { Location } = require('../models')
 
 const { create, update, destroy, findOne, findAll } = require('../controllers/locations')
+const validateLocation = require('../middleware/validate-location')
 
-router.post('/', create)
+router.post('/', validateLocation, create)
 
-router.put('/:id', update)
+router.put('/:id', validateLocation, update)
 
 router.delete('/:id', destroy)
 
