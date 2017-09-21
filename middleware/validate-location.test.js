@@ -1,7 +1,8 @@
-const validateLocation = require('./validate-location')
 const httpMocks = require('node-mocks-http')
 const { expect, assert } = require('chai')
 const sinon = require('sinon')
+
+const validateLocation = require('./validate-location')
 const ServerError = require('../util/server-error')
 
 describe('validateLocation', () => {

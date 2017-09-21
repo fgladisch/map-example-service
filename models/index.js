@@ -1,12 +1,12 @@
 const Sequelize = require('sequelize')
 const dbConfig = require('../config/db')
 
-const options = {
+const dbOptions = {
   dialect: 'postgres',
   logging: false
 }
 
-const sequelize = new Sequelize('boardmap', dbConfig.username, dbConfig.password, options)
+const sequelize = new Sequelize('boardmap', dbConfig.username, dbConfig.password, dbOptions)
 
 const Location = require('./location')(sequelize)
 

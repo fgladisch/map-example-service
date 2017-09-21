@@ -1,11 +1,10 @@
 const express = require('express')
 
-const router = express.Router()
-
 const { Location } = require('../models')
-
 const { create, update, destroy, findOne, findAll } = require('../controllers/locations')
 const validateLocation = require('../middleware/validate-location')
+
+const router = express.Router()
 
 router.post('/', validateLocation, create)
 
