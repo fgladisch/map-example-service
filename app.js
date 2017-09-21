@@ -3,8 +3,7 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
-const PORT = 4000
-
+const config = require('./config/server')
 const { sequelize } = require('./models')
 const locations = require('./routes/locations')
 const accessControl = require('./middleware/access-control')
@@ -18,8 +17,7 @@ app.use('/locations', locations)
 
 app.use(errorHandler)
 
-const start = () => app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`)
-})
+const start = () => app.listen(config.port, () =>
+  console.log(`Listening on port ${config.port}`))
 
 sequelize.sync().then(() => start())
