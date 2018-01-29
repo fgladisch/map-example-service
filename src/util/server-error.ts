@@ -1,4 +1,6 @@
-class ServerError extends Error {
+export default class ServerError extends Error {
+
+  public status: string;
 
   constructor(status, message) {
     super(message || 'Unknown Error')
@@ -6,5 +8,3 @@ class ServerError extends Error {
   }
 
 }
-
-module.exports = ServerError

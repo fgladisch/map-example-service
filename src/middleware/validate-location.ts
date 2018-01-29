@@ -1,12 +1,13 @@
-const Ajv = require('ajv')
-const ajv = new Ajv()
+import * as Ajv from 'ajv'
+import ServerError from '../util/server-error'
 
 const locationSchema = require('../schemas/location')
-const ServerError = require('../util/server-error')
+
+const ajv = new Ajv()
 
 const validator = ajv.compile(locationSchema)
 
-function validateLocation(req, res, next) {
+export default (req, res, next) => {
 
   try {
 
@@ -22,5 +23,3 @@ function validateLocation(req, res, next) {
 
   return next()
 }
-
-module.exports = validateLocation

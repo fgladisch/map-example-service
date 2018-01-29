@@ -1,6 +1,6 @@
-const ServerError = require('../util/server-error')
+import ServerError from '../util/server-error'
 
-function errorHandler(err, req, res, next) {
+export default (err, req, res, next) => {
 
   if (err instanceof ServerError) {
     return res.status(err.status).send(err.message)
@@ -8,5 +8,3 @@ function errorHandler(err, req, res, next) {
 
   res.status(500).send(err.message)
 }
-
-module.exports = errorHandler

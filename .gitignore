@@ -14,4 +14,7 @@ Thumbs.db
 *.swp
 
 # Config
-config/db.json
+src/config/db.ts
+
+#TypeScript
+dist

@@ -1,13 +1,13 @@
-const { create, update, destroy, findOne, findAll } = require('./locations')
-const httpMocks = require('node-mocks-http')
-const { expect } = require('chai')
+import { create, update, destroy, findOne, findAll } from './locations'
+import * as httpMocks from 'node-mocks-http';
+import { expect } from 'chai'
+import { spy, SinonSpy } from 'sinon'
 
-const { Location, sequelize } = require('../models')
+import { Location, sequelize } from '../models'
 
 const resetDatabase = () => sequelize.sync({ force: true })
 
-// TODO: Spy
-const next = (err) => null
+const next: SinonSpy = spy()
 
 describe('locations controller', () => {
 

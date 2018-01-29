@@ -1,7 +1,7 @@
-const { Location } = require('../models')
-const ServerError = require('../util/server-error')
+import { Location } from '../models'
+import ServerError from '../util/server-error'
 
-async function create(req, res, next) {
+export async function create(req, res, next) {
 
   try {
 
@@ -17,7 +17,7 @@ async function create(req, res, next) {
 
 }
 
-async function update(req, res, next) {
+export async function update(req, res, next) {
 
   try {
 
@@ -41,7 +41,7 @@ async function update(req, res, next) {
 
 }
 
-async function destroy(req, res, next) {
+export async function destroy(req, res, next) {
 
   try {
 
@@ -57,7 +57,7 @@ async function destroy(req, res, next) {
 
 }
 
-async function findOne(req, res, next) {
+export async function findOne(req, res, next) {
 
   try {
 
@@ -77,7 +77,7 @@ async function findOne(req, res, next) {
 
 }
 
-async function findAll(req, res, next) {
+export async function findAll(req, res, next) {
 
   try {
 
@@ -89,12 +89,4 @@ async function findAll(req, res, next) {
     next(err)
   }
 
-}
-
-module.exports = {
-  create,
-  update,
-  destroy,
-  findOne,
-  findAll
 }
