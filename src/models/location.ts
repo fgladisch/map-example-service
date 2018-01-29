@@ -1,7 +1,15 @@
-import * as Sequelize from 'sequelize'
+import { Table, Column, Model } from 'sequelize-typescript';
 
-export default sequelize => sequelize.define('Location', {
-  name: Sequelize.STRING,
-  latitude: Sequelize.DECIMAL,
-  longitude: Sequelize.DECIMAL
-})
+@Table
+export default class Location extends Model<Location> {
+
+  @Column
+  name: string;
+
+  @Column
+  latitude: string;
+
+  @Column
+  longitude: string;
+
+}

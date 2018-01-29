@@ -1,15 +1,16 @@
-import locationFactory from './location'
-
-import * as Sequelize from 'sequelize'
+import { Sequelize } from 'sequelize-typescript'
 import dbConfig from '../config/db'
+import Location from './location'
 
-const dbOptions: any = {
+const sequelize = new Sequelize({
+  database: 'boardmap',
   dialect: 'postgres',
-  logging: false
-}
+  logging: false,
+  ...dbConfig
+})
 
-const sequelize = new Sequelize('boardmap', dbConfig.username, dbConfig.password, dbOptions)
-
-const Location = locationFactory(sequelize)
+sequelize.addModels([
+  Location
+])
 
 export { sequelize, Location }
