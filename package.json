@@ -7,8 +7,7 @@
   "license": "GPL-3.0",
   "scripts": {
     "start": "ts-node src/app",
-    "test": "mocha --require ts-node/register src/**/*.test.ts",
-    "watch": "nodemon ./app.js"
+    "test": "mocha --require ts-node/register src/**/*.test.ts"
   },
   "dependencies": {
     "ajv": "5.2.2",
